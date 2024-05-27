@@ -8,7 +8,7 @@ const config = {
   maxAge: 60 * 60 * 24 * 7, // 1 week
   path: "/",
   domain: process.env.HOST ?? "localhost",
-  httponly: true,
+  httpOnly: true,
   secure: process.env.NODE_ENV === "production",
 };
 
