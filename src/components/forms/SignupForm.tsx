@@ -14,9 +14,12 @@ import {
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { registerUserAction } from "@/data/actions/auth-actions";
+import { ZodErrors } from "../custom/ZodErrors";
 
 const INITIAL_STATE = {
-  data: "Hello World 😎",
+  data: null,
+  zodErrors: null,
+  message: null,
 };
 
 export function SignupForm() {
@@ -45,6 +48,7 @@ export function SignupForm() {
                 type="text"
                 placeholder="username"
               />
+              <ZodErrors error={formState?.zodErrors?.username} />
             </div>
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
@@ -54,6 +58,7 @@ export function SignupForm() {
                 type="email"
                 placeholder="name@example.com"
               />
+              <ZodErrors error={formState?.zodErrors?.email} />
             </div>
 
             <div className="space-y-2">
@@ -64,6 +69,7 @@ export function SignupForm() {
                 type="password"
                 placeholder="password"
               />
+              <ZodErrors error={formState?.zodErrors?.password} />
             </div>
           </CardContent>
           <CardFooter className="flex flex-col">
