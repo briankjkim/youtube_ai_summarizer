@@ -57,6 +57,7 @@ export function getStrapiMedia(url: string | null) {
 }
 
 export function extractYouTubeID(urlOrID: string): string | null {
+  // TODO: Allow Youtube Links from Shareable links to pass URL validation
   // Regular expression for YouTube ID format
   const regExpID = /^[a-zA-Z0-9_-]{11}$/;
 
