@@ -38,10 +38,10 @@ INSTRUCTIONS:
 
 async function generateSummary(content: string, template: string) {
   const prompt = PromptTemplate.fromTemplate(template);
-  // Original modelName was: "gpt-4-turbo-preview"
+  // Original modelName was: "gpt-4-turbo-preview" || change to "gpt-3.5-turbo"
   const model = new ChatOpenAI({
     openAIApiKey: process.env.OPENAI_API_KEY,
-    modelName: process.env.OPENAI_MODEL ?? "gpt-3.5-turbo",
+    modelName: process.env.OPENAI_MODEL ?? "gpt-4-turbo-preview",
     temperature: process.env.OPENAI_TEMPERATURE
       ? parseFloat(process.env.OPENAI_TEMPERATURE)
       : 0.7,
@@ -95,14 +95,14 @@ export async function POST(req: NextRequest) {
     transcript = await fetchTranscript(videoId);
 
     const transformedData = transformData(transcript);
-    console.log("Transcript:", transformedData.text);
+    // console.log("Transcript:", transformedData.text);
 
     let summary: Awaited<ReturnType<typeof generateSummary>>;
     summary = await generateSummary(transformedData.text, TEMPLATE);
     console.log("Summary:", summary);
 
     return new Response(
-      JSON.stringify({ data: "return from our handler", error: null }),
+      JSON.stringify({ data: summary, error: null }),
       {
         status: 200,
       }
