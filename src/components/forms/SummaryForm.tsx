@@ -4,6 +4,8 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { cn } from "@/lib/utils";
 
+import { generateSummaryService } from "@/data/services/summary-service";
+
 import { Input } from "@/components/ui/input";
 import { SubmitButton } from "@/components/custom/SubmitButton";
 
@@ -25,7 +27,16 @@ export function SummaryForm() {
   async function handleFormSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setLoading(true);
-    toast.success("Summary Created");
+
+    const formData = new FormData(event.currentTarget);
+    const videoId = formData.get("videoId") as string;
+
+    console.log(videoId);
+
+    const summaryResponseData = await generateSummaryService(videoId);
+    console.log(summaryResponseData, "Response from route handler");
+
+    toast.success("Testing Toast");
     setLoading(false);
   }
 
