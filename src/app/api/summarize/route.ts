@@ -38,7 +38,7 @@ INSTRUCTIONS:
 
 async function generateSummary(content: string, template: string) {
   const prompt = PromptTemplate.fromTemplate(template);
-  // "gpt-4-turbo-preview"
+  // Original modelName was: "gpt-4-turbo-preview"
   const model = new ChatOpenAI({
     openAIApiKey: process.env.OPENAI_API_KEY,
     modelName: process.env.OPENAI_MODEL ?? "gpt-3.5-turbo",
