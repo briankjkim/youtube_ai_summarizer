@@ -16,6 +16,8 @@ type YtFetchConfig = {
 async function fetchTranscript(videoId: string, config: YtFetchConfig = {}) {
   console.log("fetchTranscript", videoId);
   const identifier = extractYouTubeID(videoId);
+  // console.log("identifier:", identifier);
+
   const lang = config?.lang ?? "en";
   try {
     const transcriptUrl = await fetch(
@@ -105,7 +107,8 @@ export function extractYouTubeID(urlOrID: string): string | null {
   }
 
   // Regular expression for standard YouTube links
-  const regExpStandard = /youtube\.com\/watch\?v=([a-zA-Z0-9_-]+)/;
+  const regExpStandard =
+    /(?:youtube\.com\/(?:watch\?v=|v\/)|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]+)(?:\?.*)?/;
 
   // Regular expression for YouTube Shorts links
   const regExpShorts = /youtube\.com\/shorts\/([a-zA-Z0-9_-]+)/;
