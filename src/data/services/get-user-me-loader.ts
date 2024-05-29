@@ -13,6 +13,10 @@ export async function getUserMeLoader() {
   url.search = query;
 
   const authToken = await getAuthToken();
+  console.log("#################################################");
+  console.log("authtoken", authToken);
+  console.log("#################################################");
+
   if (!authToken) return { ok: false, data: null, error: null };
 
   try {
@@ -25,6 +29,9 @@ export async function getUserMeLoader() {
       cache: "no-cache",
     });
     const data = await response.json();
+    console.log("data:", data);
+    console.log("#############################################");
+
     if (data.error) return { ok: false, data: null, error: data.error };
     return { ok: true, data: data, error: null };
   } catch (error) {
