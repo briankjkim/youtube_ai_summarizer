@@ -8,6 +8,9 @@ import { fetchTranscript } from "@/lib/youtube-transcript";
 import { getUserMeLoader } from "@/data/services/get-user-me-loader";
 import { getAuthToken } from "@/data/services/get-token";
 
+export const maxDuration = 59;
+export const dynamic = "force-dynamic";
+
 function transformData(data: any[]) {
   let text = "";
 
@@ -101,12 +104,9 @@ export async function POST(req: NextRequest) {
     summary = await generateSummary(transformedData.text, TEMPLATE);
     console.log("Summary:", summary);
 
-    return new Response(
-      JSON.stringify({ data: summary, error: null }),
-      {
-        status: 200,
-      }
-    );
+    return new Response(JSON.stringify({ data: summary, error: null }), {
+      status: 200,
+    });
   } catch (error) {
     console.error("Error processing request:", error);
     if (error instanceof Error)
