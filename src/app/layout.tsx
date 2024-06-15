@@ -6,6 +6,7 @@ import "./globals.css";
 import { getGlobalPageData, getGlobalPageMetadata } from "@/data/loaders";
 import { Header } from "@/components/custom/Header";
 import { Footer } from "@/components/custom/Footer";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,6 +34,7 @@ export default async function RootLayout({
         <Header data={globalData.header} />
         <div>{children}</div>
         <Footer data={globalData.footer} />
+        <Analytics />
       </body>
     </html>
   );
