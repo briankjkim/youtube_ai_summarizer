@@ -11,25 +11,20 @@ function DashboardTempMessage({ userName }: { userName: string }) {
       <CardContent>
         <p className="w-full mb-4 leading-7">
           <span>
-            {"Currently, this website is in development, released for testing."}
+            Currently, this website is in development, released for testing.{" "}
             <br />
-            {
-              "You are given 10 free credit upon signup! Use them to try the feature."
-            }
+            You are given 10 free credit upon signup! Use them to try the
+            feature. <br />
             <br />
+            To check your account, click on Account <br />
+            To check your previous summaries, click on Summaries <br />
             <br />
-            {"To check your account, click on Account"}
-            <br />
-            {"To check your previous summaries, click on Summaries"}
-            <br />
-            <br />
-            {
-              "Contact Developers at skydive2231@yahoo.com for any questions or concerns."
-            }
+            For inquiries or concerns, reach me at
+            <a href={`mailto:kynd.b.tech@gmail.com?`}>kynd.b.tech@gmail.com</a>
             <br />
             <br />
             <br />
-            {"Thank you!"}
+            Thank you!
           </span>
         </p>
       </CardContent>
