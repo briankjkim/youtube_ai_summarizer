@@ -23,7 +23,7 @@ function selectSocialIcon(url: string) {
   if (url.includes("gmail")) return <EmailIcon className="h-6 w-6" />;
   if (url.includes("linkedin")) return <LinkedinIcon className="h-6 w-6" />;
   if (url.includes("github")) return <GithubIcon className="h-6 w-6" />;
-  if (url.includes("twitter")) return <TwitterIcon className="h-6 w-6" />;
+  if (url.includes("x.com")) return <TwitterIcon className="h-6 w-6" />;
   return null;
 }
 
