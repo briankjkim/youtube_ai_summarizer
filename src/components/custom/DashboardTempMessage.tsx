@@ -20,7 +20,7 @@ function DashboardTempMessage({ userName }: { userName: string }) {
             To check your previous summaries, click on Summaries <br />
             <br />
             For inquiries or concerns, reach me at
-            <a href={`mailto:kynd.b.tech@gmail.com?`}>kynd.b.tech@gmail.com</a>
+            <a href={`mailto:kynd.b.tech@gmail.com?`}> kynd.b.tech@gmail.com</a>
             <br />
             <br />
             <br />
