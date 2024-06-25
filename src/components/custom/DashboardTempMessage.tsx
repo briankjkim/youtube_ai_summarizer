@@ -11,7 +11,7 @@ function DashboardTempMessage({ userName }: { userName: string }) {
       <CardContent>
         <p className="w-full mb-4 leading-7">
           <span>
-            Currently, this website is in development, released for testing.{" "}
+            Currently, this website is in development, released for testing.
             <br />
             You are given 10 free credit upon signup! Use them to try the
             feature. <br />
